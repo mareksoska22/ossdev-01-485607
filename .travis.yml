@@ -8,6 +8,10 @@ jobs:
   include:
     - stage: Test
       script: mvn clean test -B
+    - stage: Generate documentation
+      script: mvn javadoc:jar
+    - stage: Deploy
+      script: mvn deploy:deploy
  
 notifications:
   email: mareksoska22@gmail.com
