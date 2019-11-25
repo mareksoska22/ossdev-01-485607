@@ -7,11 +7,9 @@ script: mvn clean install -DskipTests=true -Dmaven.javadoc.skip=true -B -V
 jobs:
   include:
     - stage: Test
-      script: mvn clean test -B
+      script: mvn test -B
     - stage: Generate documentation
       script: mvn javadoc:jar
-    - stage: Deploy
-      script: mvn deploy:deploy
  
 notifications:
   email: mareksoska22@gmail.com
