@@ -1,9 +1,13 @@
 language: java
 jdk:
-  -openjdk11
+  - openjdk11
+
+script: mvn clean install -DskipTests=true -Dmaven.javadoc.skip=true -B -V
   
-script:
-  -mvn clean install
+jobs:
+  include:
+    - stage: Test
+      script: mvn clean test -B
  
 notifications:
-  -email: mareksoska22@gmail.com
+  email: mareksoska22@gmail.com
