@@ -38,11 +38,22 @@ public class PrimesInterval {
         return builder.toString().trim();
     }
 
-
+    /**
+     * Basic getter function.
+     *
+     * @return Returns an unmodifiable list of generated prime numbers.
+     */
     public List<Integer> getPrimes() {
         return Collections.unmodifiableList(primes);
     }
 
+    /**
+     * Generates a list of prime numbers in an interval [start, end].
+     *
+     * @param start The start number of the interval (start number included).
+     * @param end The end number of the interval (end number included).
+     * @return Returns prime numbers list from lowest to highest.
+     */
     private List<Integer> primesList(int start, int end) {
         List<Integer> primesList = new ArrayList<Integer>();
 
@@ -55,6 +66,13 @@ public class PrimesInterval {
         return primesList;
     }
 
+    /**
+     * Checks if a number is divisible by all of the numbers in a list.
+     *
+     * @param num Given number.
+     * @param primesList Given divisors.
+     * @return Returns true if is divisible by all of then, returns false otherwise.
+     */
     private boolean isDividable(int num, List<Integer> primesList) {
         for (Integer prime : primesList) {
             if (num % prime == 0) {
